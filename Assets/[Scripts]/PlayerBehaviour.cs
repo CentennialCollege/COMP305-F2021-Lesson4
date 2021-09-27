@@ -26,6 +26,13 @@ public class PlayerBehaviour : MonoBehaviour
         {
             x = Input.GetAxisRaw("Horizontal");
             y = Input.GetAxisRaw("Jump");
+
+            // check if player is moving
+            if (x != 0)
+            {
+                transform.localScale = new Vector3(Mathf.RoundToInt(x), 1.0f);
+            }
+            
         }
 
         Vector2 movementVector = new Vector2(x * horizontalForce, y * verticalForce);
@@ -47,4 +54,5 @@ public class PlayerBehaviour : MonoBehaviour
             isGrounded = false;
         }
     }
+
 }
